@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from crewai import Operator, Agent, Task, Crew
 from pdf_to_text import pdf_to_text
 from tools.search_tools import SearchTools
@@ -13,16 +14,18 @@ from crewai_tools import (
 from langchain_groq import ChatGroq
 from textwrap import dedent
 
+# Load environment variables from .env file
+load_dotenv()
+
 # Set up API keys
-os.environ["SERPER_API_KEY"] = "your_serper_api_key"
-os.environ["GROQ_API_KEY"] = "your_groq_api_key"
+serper_api_key = os.getenv("SERPER_API_KEY")
+groq_api_key = os.getenv("GROQ_API_KEY")
 
 # Initialize LLM
 llm = ChatGroq(
-    api_key=os.getenv("GROQ_API_KEY"),
+    api_key=groq_api_key,
     model="mixtral-8x7b-32768",
 )
-
 # Instantiate tools
 docs_tool = DirectoryReadTool(directory=r'C:\Users\SURFACE\Desktop\wingify_final_submission')
 file_tool = FileReadTool()
