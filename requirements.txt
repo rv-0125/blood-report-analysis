@@ -1,0 +1,5 @@
+openai==0.27.0
+pdfminer.six==20201018
+serpapi==2.0.0
+langchain_groq==1.0.0
+crew-ai==1.0.0
