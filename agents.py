@@ -1,8 +1,8 @@
 from crewai import Agent
 from textwrap import dedent
 import os
-from tools.search_tools import SearchTools
-from tools.summarise_tools import SummariseTools
+from search_tools import SearchTools
+from summarise_tools import SummariseTools
 from langchain_groq import ChatGroq
 
 llm=ChatGroq(
